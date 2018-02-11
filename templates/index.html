@@ -1,0 +1,58 @@
+{% extends "_layout.html" %}
+{% block title %}PC-GPO Audit Tool by Bellcurve Technology{% endblock %}
+
+{% block head %}
+<script type="text/javascript">
+    function close_window() {
+      if (confirm("Close App?")) {
+        close();
+      }
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="well well-lg text-center">
+        <span class="pull-right" style="margin-top:-12px;">
+            <a href="#" title="Toggle Report Sections" onclick="toggleMe('sections');">
+                <i class="fa fa-gear text-primary"></i>
+            </a>
+        </span>
+        <h1>GPO Audit Report</h1>
+        <p class="lead">HIPAA Compliance Auditing Tool for Windows PC's.</p>
+        <ul class="nav">
+            <li><h3><strong>{{ pc.today }}</strong></h3></li>
+            <li><h4><strong>{{ pc.pc_platform }}</strong></h4></li>
+            <li><h4><strong>{{ pc.pc_name }}</strong></h4></li>
+        </ul>
+    </div>
+
+
+    <div class="panel panel-primary" id="sections">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-desktop"></i> GPO Report Sections</h3>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li><a href="{{ url_for('access') }}"><i class="fa fa-tablet"></i> System Access</a></li>
+                <li><a href="{{ url_for('events') }}"><i class="fa fa-tablet"></i> Event Audit</a></li>
+                <li><a href="{{ url_for('registry') }}"><i class="fa fa-tablet"></i> Registry Values</a></li>
+                <li><a href="{{ url_for('user') }}"><i class="fa fa-tablet"></i> User Rights</a></li>
+                <li><a href="{{ url_for('version') }}"><i class="fa fa-tablet"></i> Version Info</a></li>
+            </ul>
+        </div>
+        <div class="panel-footer">
+            <i class="fa fa-info-circle"></i> Select a section to view report results...
+        </div>
+    </div>
+    
+    <!-- // toggle the raw data hidden div -->
+    <script>
+        function toggleMe(divId) {
+            $("#" + divId).toggle();
+        }
+    </script>
+
+
+{% endblock %}

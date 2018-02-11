@@ -1,0 +1,85 @@
+{% extends "_layout.html" %}
+{% block title %}System Access Results &raquo; PC-GPO Audit Tool by Bellcurve Technology{% endblock %}
+{% block content %}
+
+    <div class="well well-lg text-center">
+        <span class="pull-right" style="margin-top:-12px;">
+            <a href="#" title="Toggle Raw Data" onclick="toggleMe('raw-data');">
+                <i class="fa fa-gear text-primary"></i>
+            </a>
+        </span>
+        <h1>System Access Results: GPO Audit Report</h1>
+        <p class="lead">A report on the logged in user's system access and password settings.</p>
+        <ul class="nav">
+            <li><h3><strong>{{ today }}</strong></h3></li>
+            <li><h4><strong>{{ platform }}</strong></h4></li>
+            <li><h4><strong>{{ pc_name }}</strong></h4></li>
+        </ul>
+    </div>
+
+    <!-- show raw data values if user clicks the gear above.  hidden by default -->
+    <div class="well well-md" style="display: none;" id="raw-data">
+        <h4 class="text-primary"><small><i class="fa fa-gear"></i> Raw data used to generate this report:</small></h4>
+        <ul>
+            <li>Password Complexity: {{ results.passcomplex }}</li>
+            <li>Minimum Password Length: {{ results.minpwdlength }}</li>
+            <li>Maximum Password Age: {{ results.maxpwdage }}</li>
+            <li>Minimum Password Age: {{ results.minpwdage }}</li>
+            <li>Password History Size: {{ results.passhistory }}</li>
+            <li>Password Lockout: {{ results.passlockout }}</li>
+        </ul>
+    </div>
+
+    <div class="alert alert-block alert-danger">
+        <h2 style="margin-top:-1px;"><i class="fa fa-warning"></i> Password Complexity</h2>
+        <p>This security setting determines whether passwords must meet complexity requirements.  If this policy is enabled, passwords must meet the following requirements.</p>
+        <ul>
+            <li>Not contain the user's account name or part of the user's full name that exceed two consecutive characters.</li>
+            <li>Be at least six characters in length.</li>
+            <li>Contain characters from three of the following four categories:</li>
+                <ul>
+                    <li>English upper case characters (A through Z)</li>
+                    <li>English lowercase characters (a through z)</li>
+                    <li>Base 10 digits (0 through 9)</li>
+                    <li>Non-alphabetic characters (for example: !, $, #, %)</li>
+                </ul>
+            <li>To see how to change your password complexity at our Compliant Devices YouTube channel at: https://www.youtube.com/watch?v=MvjmfaJPwk.  If you need further assistance just click the "HELP" button below to send this report to our engineers so we can schedule a help session. </li>
+        </ul>
+    </div>
+
+    <div class="alert alert-block alert-success">
+        <h2 style="margin-top:-1px;"><i class="fa fa-check-circle"></i> Minimum Password Length</h2>
+        <p>Your computers setting meet the minimum suggested requirements.  Nothing more to do here.</p>
+    </div>
+
+    <div class="alert alert-block alert-success">
+        <h2 style="margin-top:-1px;"><i class="fa fa-check-circle"></i> Maximum Password Age</h2>
+        <p>Your computers setting meet the minimum suggested requirements.  Nothing more to do here.</p>
+    </div>
+
+    <div class="alert alert-block alert-success">
+        <h2 style="margin-top:-1px;"><i class="fa fa-check-circle"></i> Minimum Password Age</h2>
+        <p>Your computers setting meet the minimum suggested requirements.  Nothing more to do here.</p>
+    </div>
+
+    <div class="alert alert-block alert-success">
+        <h2 style="margin-top:-1px;"><i class="fa fa-check-circle"></i> Password History Size</h2>
+        <p>Your computers setting meet the minimum suggested requirements.  Nothing more to do here.</p>
+    </div>
+
+    <div class="alert alert-block alert-success">
+        <h2 style="margin-top:-1px;"><i class="fa fa-check-circle"></i> Password Lockout After X Failed Attempts</h2>
+        <p>Your computers setting meet the minimum suggested requirements.  Nothing more to do here.</p>
+    </div>
+
+
+    <!-- // toggle the raw data hidden div -->
+    <script>
+        function toggleMe(divId) {
+            $("#" + divId).toggle();
+        }
+    </script>
+
+
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "_layout.html" %}
+{% block title %}Event Audit Results &raquo; PC-GPO Audit Tool by Bellcurve Technology{% endblock %}
+{% block content %}
+
+    <div class="well well-lg text-center">
+        <span class="pull-right" style="margin-top:-12px;">
+            <a href="#" title="Toggle Raw Data" onclick="toggleMe('raw-data');">
+                <i class="fa fa-gear text-primary"></i>
+            </a>
+        </span>
+        <h1>Event Audit Results: GPO Audit Report</h1>
+        <p class="lead">A report on the logged in user's system access and password settings.</p>
+        <ul class="nav">
+            <li><h3><strong>{{ today }}</strong></h3></li>
+            <li><h4><strong>{{ platform }}</strong></h4></li>
+            <li><h4><strong>{{ pc_name }}</strong></h4></li>
+        </ul>
+    </div>
+
+    <!-- show raw data values if user clicks the gear above.  hidden by default -->
+    <div class="well well-md" style="display: none;" id="raw-data">
+        <h4 class="text-primary"><small><i class="fa fa-gear"></i> Raw data used to generate this report:</small></h4>
+        <ul>
+            <li>Event Audit Raw Data</li>
+        </ul>
+    </div>
+
+    <div class="alert alert-block alert-info">
+        <h2 style="margin-top:-1px;"><i class="fa fa-warning"></i> Event Audit</h2>
+        <p>Exceeding reaction chamber thermal limit. We have begun power-supply calibration. Force fields have been established on all turbo lifts and crawlways. Computer, run a level-two diagnostic on warp-drive systems. Antimatter containment positive. Warp drive within normal parameters. I read an ion trail characteristic of a freighter escape pod. The bomb had a molecular-decay detonator. Detecting some unusual fluctuations in subspace frequencies.
+
+I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I'm comparing the molecular integrity of that bubble against our phasers.
+
+Sensors indicate no shuttle or other ships in this sector. According to coordinates, we have travelled 7,000 light years and are located near the system J-25. Tractor beam released, sir. Force field maintaining our hull integrity. Damage report? Sections 27, 28 and 29 on decks four, five and six destroyed. Without our shields, at this range it is probable a photon detonation could destroy the Enterprise.
+
+</p>
+    </div>
+
+    <!-- // toggle the raw data hidden div -->
+    <script>
+        function toggleMe(divId) {
+            $("#" + divId).toggle();
+        }
+    </script>
+
+
+
+{% endblock %}
