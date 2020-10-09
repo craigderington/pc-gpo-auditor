@@ -22,7 +22,7 @@ server.config.update(dict(
     MAIL_PORT=587,
     MAIL_USE_TLS=True,
     MAIL_USERNAME='compliant@bellcurvetechnology.com',
-    MAIL_PASSWORD='2112Rl#e',
+    MAIL_PASSWORD='',
     MAIL_DEFAULT_SENDER='Compliant Devices <compliant@bellcurvetechnology.com>'
 ))
 
